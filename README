@@ -16,3 +16,5 @@ I have created a Poll Simulator by using python framework Django which is based 
 5. pollResult - In this method,  first it will be checked that if candidates(python dictionary, which is a global variable) is not empty, then it will fetch only two candidates with highest and second highest votes and pass that information to poll_result.html page or else it will just pass one message that 'no candidates has been added yet' to the poll_result.html page.
 
 Hence, these are the functionalities I have implemented in Poll_Simulator.
+
+Heroku link: https://poll-simulator.herokuapp.com/
