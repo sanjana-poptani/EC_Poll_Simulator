@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/poll.css' %}">
+    <title>Add Candidates: Poll Simulator</title>
+</head>
+<body>
+    {% if alert %}
+    <script>
+        alert('{{alert}}');
+    </script>
+    {% endif %}
+    <div class="pollAdd">
+        <h1>SBG core members election</h1>
+        <h3>Add the members who are eligible for election</h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h3><label for="">Member: </label>
+            <input type="text" name="candidate" required></h3>
+            <input type="submit" value="Submit" />
+        </form>
+        {% if candidates %}
+        <ul>
+        <textarea id="" cols="83" rows="13" style="
+        border: none;
+        resize: none;
+        padding-left: 0%;
+        font-family: 'Open Sans', sans-serif;
+        font-weight:bold;
+        background-color:#e4edf4;
+        margin-left: -7%;
+        color:#53626E;">
+            {% for candidate in candidates %}
+            • {{candidate}}
+            {% endfor %}
+        </textarea>
+        </ul>
+        {% endif %}
+        <form action="{% url 'home' %}">
+            <input type="submit" value="Back to Home">
+        </form>
+      </div>
+</body>
+</html>

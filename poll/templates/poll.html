@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/poll.css' %}">
+    <title>poll simulator</title>
+</head>
+<body>
+    {% if alert %}
+    <script>
+        alert('{{alert}}');
+    </script>
+    {% endif %}
+    <div class="poll">
+        <h1>SBG core members election</h1>
+        <h3>Select an option below that you feel can be the best SBG core member </h3>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <h3><label for="">Student ID: </label>
+            <input type="number" max="202014400" min="201601001" name="id" maxlength="9" required></h3>
+            <ul>
+                <div style="overflow: scroll;overflow: auto;height: 150px;border: none;">
+                    {% if candidates %}
+                    <table style="border: none">
+                        {% for key in candidates %}
+                    <tr><td><li><input type="radio" name="poll_value" value="{{key}}"> {{key}}</li></td></tr>
+                    {% endfor %}
+                    </table>
+                </div>
+                    {% elif msge %}
+                    <li>{{msge}}</li>
+                    {% endif %}
+            </ul>
+            <input type="submit" value="Submit" />
+        </form>
+        <form action="{% url 'home' %}">
+            <input type="submit" value="Back to Home">
+        </form>
+      </div>
+</body>
+</html>

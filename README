@@ -1,0 +1,18 @@
+I have created a Poll Simulator by using python framework Django which is based on MVT(model-view-template) model. MVT architecture is much similar to MVC, where the controller part is taken care for us by the framework itself.
+
+-> This Model similar to MVC acts as an interface for your data and is basically the logical structure behind the entire web application. Now here I am not using any database to store the data permanently, instead I am using an objects to store the data, so I didn't use Models.
+
+-> The View executes the business logic and interacts with the Model and renders the template. It accepts HTTP request and then return HTTP responses. In my project, I have coded the business logic in the file called views.py
+
+-> The Template is the component which makes MVT different from MVC. Templates act as the presentation layer and are basically the HTML code that renders the data. I have created one folder called templates within the poll folder, and inside that templates folder, all the HTML files are there.
+
+-> Here controller part of MVC is handled partly by views.py and urls.py file inside the poll folder.
+
+-> In views.py, there are basically four functions: 
+1. home - It is used only for the redirection to home page.
+2. add_candidates - In this method, it will first redirect the user to the add_candidates.html page, and after adding one candidate, if user clicks on submit button, it will first check if that particular candidate already exist in a python dictionary (which is declared before all the functions as a global variable), if it exists, then it will simply give an alert message and redirect to add_candidates.html page again, and if it does not exist, then it will add that candidate in python dictionary.
+3. poll - In this method, it will first redirect the user to the poll.html page, where user can insert his ID and select one person and then submit. After clicking the submit button, it will be checked that the ID inserted by user is already present in ids list(which is declared before all the functions as a global variable to keep check of all the user ids), if it exists already, then user will be simply redirected again to poll page with the alert message that you can't vote more than once, or else if id doesn't exist in ids list, then it will increase the candidate's vote count in dictionary, as well as it will add that particular id in the ids list.
+4. votingSummary - In this method, first it will be checked that if candidates(python dictionary, which is a global variable) is not empty, then it will just fetch all the candidate from candidates with their vote count and pass that information to summary.html page or else it will just pass one message that 'no candidates has been added yet' to the summary.html page.
+5. pollResult - In this method,  first it will be checked that if candidates(python dictionary, which is a global variable) is not empty, then it will fetch only two candidates with highest and second highest votes and pass that information to poll_result.html page or else it will just pass one message that 'no candidates has been added yet' to the poll_result.html page.
+
+Hence, these are the functionalities I have implemented in Poll_Simulator.

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/poll.css' %}">
+    <title>poll simulator</title>
+</head>
+<body>
+    <div class="poll">
+        <h1>SBG core members election</h1>
+        <h3>Election Summary:  </h3>
+        <ul>
+            <div style="overflow: scroll;overflow: auto;height: 280px;border: none;">
+                {% if candidates %}
+                <table style="border: none">
+                    {% for key,value in candidates.items %}
+                <tr><td><li>{{key}} : {{value}}</li></td></tr>
+                {% endfor %}
+                </table>
+            </div>
+                {% elif msge %}
+                <li>{{msge}}</li>
+                {% endif %}
+        </ul>
+        <form action="{% url 'home' %}">
+            <input type="submit" value="Back to Home">
+        </form>
+      </div>
+</body>
+</html>

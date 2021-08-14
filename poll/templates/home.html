@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home: Poll Simulator</title>
+    <link rel="stylesheet" href="{% static 'css/poll.css' %}">
+</head>
+<body>
+    <div class="pollHome">
+        <center><h1>Poll Simulator</h1></center>
+        <form action="{% url 'add_candidates' %}" method="GET">
+            {% csrf_token %}
+            <input type="submit" value="Add Candidates">
+        </form>
+        <br><br>
+        <form action="{% url 'poll' %}" method="GET">
+            {% csrf_token %}
+            <input type="submit" value="Vote">
+        </form>
+        <br><br>
+        <form action="{% url 'result' %}" method="GET">
+            {% csrf_token %}
+            <input type="submit" value="Poll Result">
+        </form>
+        <br><br>
+        <form action="{% url 'summary' %}" method="GET">
+            {% csrf_token %}
+            <input type="submit" value="Voting Summary">
+        </form>
+    </div>
+</body>
+</html>

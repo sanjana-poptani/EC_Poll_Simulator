@@ -1,0 +1,1 @@
+web: gunicorn assnmnt1.wsgi
