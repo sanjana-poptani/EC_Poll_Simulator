@@ -9,6 +9,7 @@
     <title>Add Candidates: Poll Simulator</title>
 </head>
 <body>
+    <div class="wrapper">
     {% if alert %}
     <script>
         alert('{{alert}}');
@@ -43,6 +44,7 @@
         <form action="{% url 'home' %}">
             <input type="submit" value="Back to Home">
         </form>
+      </div>
       </div>
 </body>
 </html>

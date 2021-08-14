@@ -1,6 +1,10 @@
 
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600);
 
+html, body, .wrapper{
+  height: 100%;
+}
+
 body {
   font-family: 'Open Sans', sans-serif;
   font-weight:400;
@@ -83,4 +87,10 @@ body {
   input[type="submit"]:hover {
     background-color:#7f92a1;
     cursor: pointer;
+  }
+
+
+  .wrapper{
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
   }
