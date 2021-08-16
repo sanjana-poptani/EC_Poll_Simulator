@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{% static 'css/poll.css' %}">
 </head>
 <body>
-    <div class="pollHome">
+    <div class="pollHome wrapper">
         <center><h1>Poll Simulator</h1></center>
         <form action="{% url 'add_candidates' %}" method="GET">
             {% csrf_token %}

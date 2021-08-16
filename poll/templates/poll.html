@@ -14,7 +14,7 @@
         alert('{{alert}}');
     </script>
     {% endif %}
-    <div class="poll">
+    <div class="poll wrapper">
         <h1>SBG core members election</h1>
         <h3>Select an option below that you feel can be the best SBG core member </h3>
         <form action="" method="POST">
@@ -27,7 +27,7 @@
                     <table style="border: none">
                         {% for key in candidates %}
                     <tr><td><li><input type="radio" name="poll_value" value="{{key}}"> {{key}}</li></td></tr>
-                    {% endfor %}
+                        {% endfor %}
                     </table>
                 </div>
                     {% elif msge %}
